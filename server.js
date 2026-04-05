@@ -61,7 +61,7 @@ app.post('/api/auth/register', async (req, res) => {
       SECRET_KEY,
       { expiresIn: '7d' }
     );
-    res.status(201).json({ token, user: { firstName, lastName, email } });
+    res.status(201).json({ token, user: { id: result.insertedId, firstName, lastName, email } });
   } catch (error) {
     console.error('Registration error:', error);
     res.status(500).json({ message: 'Server error during registration' });
@@ -86,7 +86,7 @@ app.post('/api/auth/login', async (req, res) => {
       SECRET_KEY,
       { expiresIn: '7d' }
     );
-    res.json({ token, user: { firstName: user.firstName, lastName: user.lastName, email: user.email } });
+    res.json({ token, user: { id: user._id, firstName: user.firstName, lastName: user.lastName, email: user.email } });
   } catch (error) {
     console.error('Login error:', error);
     res.status(500).json({ message: 'Server error during login' });

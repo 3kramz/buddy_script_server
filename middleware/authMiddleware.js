@@ -1,7 +1,6 @@
 const jwt = require('jsonwebtoken');
 
 const authMiddleware = (req, res, next) => {
-  // Get token from header: Expected format is "Bearer <token>"
   const authHeader = req.header('Authorization');
   if (!authHeader) {
     return res.status(401).json({ message: 'access denied' });
