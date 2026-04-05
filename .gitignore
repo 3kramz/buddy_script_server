@@ -1,0 +1,14 @@
+# Environment variables — NEVER commit these
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+
+# Uploads (user-generated content)
+uploads/
+
+# Logs
+*.log
+npm-debug.log*
